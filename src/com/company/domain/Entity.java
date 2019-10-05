@@ -1,9 +1,9 @@
 package com.company.domain;
 
-public abstract class AbstractDomain {
-    private Long id;
+public abstract class Entity {
+    protected Long id;
 
-    public Long getId() {
+    public Long  getId() {
         return id;
     }
 

@@ -2,7 +2,7 @@ package com.company.domain;
 
 import java.util.Date;
 
-public class Employment extends AbstractDomain //Трудоустройство
+public class Employment extends Entity //Трудоустройство
 {
     public Employment(JobApplication jobApplication, JobOffer jobOffer, User user, Employer employer, String employeeReview, String companyReview, Date startDate, Date finishDate) {
         this.jobApplication = jobApplication;

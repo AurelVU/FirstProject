@@ -1,15 +1,21 @@
 package com.company.domain;
 
-public class Employer extends AbstractDomain //Работодатель
+public class Employer extends AbstractUser //Работодатель
 {
     private int rating;
     private String aboutCompany;
     private String lineActivity;
 
-    public Employer() {
+
+    public Employer(String login, String password) {
+        super(login, password);
+        this.rating = 0;
+        this.aboutCompany = "";
+        this.lineActivity = "";
     }
 
-    public Employer(int rating, String aboutCompany, String lineActivity) {
+    public Employer(String login, String password, int rating, String aboutCompany, String lineActivity) {
+        super(login, password);
         this.rating = rating;
         this.aboutCompany = aboutCompany;
         this.lineActivity = lineActivity;

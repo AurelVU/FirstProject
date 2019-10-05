@@ -3,7 +3,7 @@ package com.company.domain;
 import java.util.Date;
 import java.math.BigDecimal;
 
-public class JobApplication extends AbstractDomain //Заявка на работу
+public class JobApplication extends Entity //Заявка на работу
 {
     private User user;
     private Date desiredStartTime;

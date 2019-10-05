@@ -1,11 +1,13 @@
 package com.company.persistence;
 
+import com.company.domain.Entity;
+
 import java.util.List;
 
 public interface DAO<T> {
     void delete(Long id);
     List<T> readAll();
-    Object readById(Long id);
-    void update(T object);
+    T readById(Long id);
+    void update(T object) throws NoSuchFieldException;
     void create(T object);
 }

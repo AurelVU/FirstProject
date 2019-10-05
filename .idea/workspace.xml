@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a51d75c-5446-4858-91ba-c501cbf09986" name="Default Changelist" comment="" />
+    <list default="true" id="7a51d75c-5446-4858-91ba-c501cbf09986" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/domain/AbstractUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/service/EmployerPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/service/EmployerRegistrarion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/service/UserPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/service/UserRegistration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/view/Shower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/AbstractDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/persistence/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/DAO.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +32,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1RHtXEaNzFR6MWrVxgLLVLwETB5" />
   <component name="PropertiesComponent">
@@ -65,10 +85,29 @@
       <workItem from="1569340104342" duration="4749000" />
       <workItem from="1569353000247" duration="661000" />
       <workItem from="1569403808026" duration="568000" />
+      <workItem from="1569846542245" duration="920000" />
+      <workItem from="1569849954517" duration="863000" />
+      <workItem from="1569915448292" duration="2725000" />
+      <workItem from="1569919904276" duration="8017000" />
+      <workItem from="1569944814756" duration="5693000" />
+      <workItem from="1570126291548" duration="1351000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

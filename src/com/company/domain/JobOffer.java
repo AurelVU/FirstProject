@@ -3,7 +3,7 @@ package com.company.domain;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class JobOffer extends AbstractDomain //Предложение работы
+public class JobOffer extends Entity //Предложение работы
 {
     private Long id;
     private Employer employer;
