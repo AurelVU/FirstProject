@@ -2,22 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a51d75c-5446-4858-91ba-c501cbf09986" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/domain/AbstractUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/service/EmployerPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/service/EmployerRegistrarion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/service/UserPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/service/UserRegistration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/view/Shower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/service/employmentServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/service/jobApplicationServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/service/jobOfferServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/AbstractDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/persistence/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/service/EmployerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/emoloyerServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/service/EmployerRegistrarion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/service/UserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/userServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/service/UserRegistration.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +85,17 @@
       <workItem from="1569919904276" duration="8017000" />
       <workItem from="1569944814756" duration="5693000" />
       <workItem from="1570126291548" duration="1351000" />
+      <workItem from="1570263113668" duration="2191000" />
+      <workItem from="1570388362705" duration="3659000" />
     </task>
+    <task id="LOCAL-00001" summary="Коммит от 05.10.19&#10;Проведена работа над логикой, исправлен persistence">
+      <created>1570263199979</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1570263199979</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,5 +113,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Коммит от 05.10.19&#10;Проведена работа над логикой, исправлен persistence" />
+    <option name="LAST_COMMIT_MESSAGE" value="Коммит от 05.10.19&#10;Проведена работа над логикой, исправлен persistence" />
   </component>
 </project>

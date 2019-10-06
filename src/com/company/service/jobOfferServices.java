@@ -1,4 +1,4 @@
 package com.company.service;
 
-public class EmployerPanel {
+public class jobOfferServices {
 }
