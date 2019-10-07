@@ -7,10 +7,10 @@ import com.company.persistence.SimpleWorker;
 import java.util.HashMap;
 import java.util.List;
 
-public class emoloyerServices {
+public class EmoloyerServices {
     protected DAO<Employer> employerDAO = new SimpleWorker<>();
 
-    void registration(String login, String password)
+    public boolean registration(String login, String password)
     {
         Employer employer = new Employer(login, password);
         HashMap<String, Object> equilMap = new HashMap<>();
@@ -19,25 +19,44 @@ public class emoloyerServices {
         if (employers.size() == 0)
         {
             employerDAO.create(employer);
+            return true;
         }
+        return false;
     }
 
-    List<Employer> getAll()
+    public Long getIdByLogin(String login)
+    {
+        HashMap<String, Object> equil = new HashMap<>();
+        equil.put("login", login);
+        List<Employer> employers = employerDAO.readByParams(null, null, equil);
+        return employers.get(0).getId();
+    }
+
+    public boolean authorization(String login, String password)
+    {
+        HashMap<String, Object> equil = new HashMap<>();
+        equil.put("login", login);
+        equil.put("password", password);
+        List<Employer> employers = employerDAO.readByParams(null, null, equil);
+        return employers.size() != 0;
+    }
+
+    public List<Employer> getAll()
     {
         return employerDAO.readAll();
     }
 
-    void delete(Long id)
+    public void delete(Long id)
     {
         employerDAO.delete(id);
     }
 
-    Employer getById(Long id)
+    public Employer getById(Long id)
     {
         return employerDAO.readById(id);
     }
 
-    void change (Long id, String login, String password, int rating, String aboutCompany, String lineActivity)
+    public void change (Long id, String login, String password, int rating, String aboutCompany, String lineActivity)
     {
         Employer employer = new Employer(login, password, rating, aboutCompany, lineActivity);
         employer.setId(id);

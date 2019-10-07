@@ -8,10 +8,10 @@ import com.company.persistence.SimpleWorker;
 import java.util.HashMap;
 import java.util.List;
 
-public class userServices {
+public class UserServices {
     protected DAO<User> userDAO = new SimpleWorker<>();
 
-    void registration(String login, String password)
+    public boolean registration(String login, String password)
     {
         User user = new User(login, password);
         HashMap<String, Object> equilMap = new HashMap<>();
@@ -20,25 +20,44 @@ public class userServices {
         if (users.size() == 0)
         {
             userDAO.create(user);
+            return true;
         }
+        return false;
     }
 
-    List<User> getAll()
+    public boolean authorization(String login, String password)
+    {
+        HashMap<String, Object> equil = new HashMap<>();
+        equil.put("login", login);
+        equil.put("password", password);
+        List<User> users = userDAO.readByParams(null, null, equil);
+        return users.size() != 0;
+    }
+
+    public Long getIdByLogin(String login)
+    {
+        HashMap<String, Object> equil = new HashMap<>();
+        equil.put("login", login);
+        List<User> users = userDAO.readByParams(null, null, equil);
+        return users.get(0).getId();
+    }
+
+    public List<User> getAll()
     {
         return userDAO.readAll();
     }
 
-    void delete(Long id)
+    public void delete(Long id)
     {
         userDAO.delete(id);
     }
 
-    User getById(Long id)
+    public User getById(Long id)
     {
         return userDAO.readById(id);
     }
 
-    void change (Long id, String login, String password, int rating, String aboutCompany, String lineActivity)
+    public void change (Long id, String login, String password, int rating, String aboutCompany, String lineActivity)
     {
         User user = new User(login, password, rating, aboutCompany, lineActivity);
         user.setId(id);

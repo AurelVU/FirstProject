@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class Employment extends Entity //Трудоустройство
 {
-    public Employment(JobApplication jobApplication, JobOffer jobOffer, User user, Employer employer, String employeeReview, String companyReview, Date startDate, Date finishDate) {
+    public Employment(JobApplication jobApplication, JobOffer jobOffer, User user, Employer employer,
+                      String employeeReview, String companyReview, Date startDate, Date finishDate) {
         this.jobApplication = jobApplication;
         this.jobOffer = jobOffer;
         this.user = user;
