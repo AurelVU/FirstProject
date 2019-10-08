@@ -83,4 +83,11 @@ public class JobOffer extends Entity //Предложение работы
     }
 
     private String other;
+
+    @Override
+    public String toString() {
+        return "id " + id.toString() + ", Создатель " + employer.getLogin() + ", начало работы " + desiredStartTime + ", дата завершения работы " +
+                desiredFinishTime + ", оплата " + desiredWage.toString() + ", дата размещения " + placementDate.toString()
+                + ", требования " + requirements + ", прочее " + other;
+    }
 }

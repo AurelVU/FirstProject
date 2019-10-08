@@ -1,11 +1,10 @@
 package com.company.persistence;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.company.domain.Entity;
 
@@ -29,11 +28,12 @@ public class SimpleWorker<T extends Entity> implements DAO<T> {
     public List<T> readByParams(HashMap<String, Object> minValue, HashMap<String, Object> maxValue,
                                 HashMap<String, Object> equilValue) {
         List<T> result = new ArrayList<>();
-        boolean flagmin = true;
-        boolean flagmax = true;
-        boolean flagequil = true;
+
         for (T item : array)
         {
+            boolean flagmin = true;
+            boolean flagmax = true;
+            boolean flagequil = true;
             if (minValue != null)
                 for (Map.Entry<String, Object> entry : minValue.entrySet())
                 {
@@ -42,9 +42,20 @@ public class SimpleWorker<T extends Entity> implements DAO<T> {
                         try {
                             Field field = workingclass.getDeclaredField(entry.getKey());
                             field.setAccessible(true);
-                            flagmin = flagmin & ((double)field.get(item) > (double)entry.getValue());
-                            break;
-                        } catch (NoSuchFieldException | IllegalAccessException e) { e.printStackTrace(); }
+                            List<Method> methods = Arrays.asList(field.get(item).getClass().getMethods());
+                            Method useMethod = null;
+                            for(Method method : methods){
+                                if (method.getName().equals("compareTo")){
+                                    useMethod = method;
+                                    useMethod.setAccessible(true);
+                                    break;
+                                }
+                            }
+                            if (useMethod != null){
+                                flagmin = flagmin & ((Integer)useMethod.invoke(field.get(item), entry.getValue()) > 0);
+                                break;
+                            }
+                        } catch (NoSuchFieldException | IllegalAccessException  | InvocationTargetException e) { /*e.printStackTrace();*/ }
                         workingclass = workingclass.getSuperclass();
                     }
                 }
@@ -55,12 +66,21 @@ public class SimpleWorker<T extends Entity> implements DAO<T> {
                     Class workingclass = item.getClass();
                     while (!workingclass.getName().equals("java.lang.Object")) {
                         try {
-                            Field field = workingclass.getField(entry.getKey());
+                            Field field = workingclass.getDeclaredField(entry.getKey());
                             field.setAccessible(true);
-                            flagmax = flagmax & ((double)field.get(item) < (double)entry.getValue());
+                            List<Method> methods = Arrays.asList(field.get(item).getClass().getMethods());
+                            Method useMethod = null;
+                            for(Method method : methods){
+                                if (method.getName().equals("compareTo")){
+                                    useMethod = method;
+                                    useMethod.setAccessible(true);
+                                    break;
+                                }
+                            }
+                            flagmax = flagmax & ((Integer)useMethod.invoke(field.get(item), entry.getValue()) < 0);
                             break;
-                        } catch (NoSuchFieldException | IllegalAccessException e) { e.printStackTrace(); }
-                        workingclass.getSuperclass();
+                        } catch (NoSuchFieldException | IllegalAccessException | InvocationTargetException e) { /*e.printStackTrace();*/ }
+                        workingclass = workingclass.getSuperclass();
                     }
                 }
 
@@ -74,7 +94,7 @@ public class SimpleWorker<T extends Entity> implements DAO<T> {
                             field.setAccessible(true);
                             flagequil = flagequil & (field.get(item).equals(entry.getValue()));
                             break;
-                        } catch (NoSuchFieldException | IllegalAccessException e) { e.printStackTrace(); }
+                        } catch (NoSuchFieldException | IllegalAccessException e) { /*e.printStackTrace();*/ }
                         workingclass = workingclass.getSuperclass();
                     }
                 }
@@ -97,7 +117,7 @@ public class SimpleWorker<T extends Entity> implements DAO<T> {
 
     @Override
     public void create(T object) {
-        object.setId((long) array.size());
+        object.setId((long)array.size());
         array.add(object.getId().intValue(), object);
     }
 }

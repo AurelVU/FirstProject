@@ -68,7 +68,7 @@ public class JobOfferServices {
 
         if (desiredStartTimeMax != null)
         {
-            maxMap.put("desiredStartTime", desiredStartTimeMin);
+            maxMap.put("desiredStartTime", desiredStartTimeMax);
         }
 
         if (desiredFinishTimeMin != null)

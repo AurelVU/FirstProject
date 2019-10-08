@@ -72,7 +72,7 @@ public class JobApplicationServices {
 
         if (desiredStartTimeMax != null)
         {
-            maxMap.put("desiredStartTime", desiredStartTimeMin);
+            maxMap.put("desiredStartTime", desiredStartTimeMax);
         }
 
         if (desiredFinishTimeMin != null)

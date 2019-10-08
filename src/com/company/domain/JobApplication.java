@@ -72,4 +72,11 @@ public class JobApplication extends Entity //Заявка на работу
     private BigDecimal desiredWage;
     private Date placementDate;
     private String typeService;
+
+    @Override
+    public String toString() {
+        return "id " + id.toString() + ", Создатель " + user.getLogin() + ", начало работы " + desiredStartTime + ", дата завершения работы " +
+                desiredFinishTime + ", оплата " + desiredWage.toString() + ", дата размещения " + placementDate.toString()
+                + ", тип услуги" + typeService;
+    }
 }

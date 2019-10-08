@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a51d75c-5446-4858-91ba-c501cbf09986" name="Default Changelist" comment="еще один Коммит от 07.10.19">
+    <list default="true" id="7a51d75c-5446-4858-91ba-c501cbf09986" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/emoloyerServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/EmoloyerServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/employmentServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/EmploymentServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/jobApplicationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/JobApplicationServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/jobOfferServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/JobOfferServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/userServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/UserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/service/JobApplicationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/JobApplicationServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/service/JobOfferServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/JobOfferServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/view/Shower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/view/Shower.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,7 +92,10 @@
       <workItem from="1570388362705" duration="3888000" />
       <workItem from="1570437132735" duration="11988000" />
       <workItem from="1570450444449" duration="2527000" />
-      <workItem from="1570467103513" duration="824000" />
+      <workItem from="1570467103513" duration="2813000" />
+      <workItem from="1570473538118" duration="5101000" />
+      <workItem from="1570530386606" duration="11651000" />
+      <workItem from="1570550079075" duration="3091000" />
     </task>
     <task id="LOCAL-00001" summary="Коммит от 05.10.19&#10;Проведена работа над логикой, исправлен persistence">
       <created>1570263199979</created>
@@ -110,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570392074117</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="и еще один Коммит от 07.10.19">
+      <created>1570468129931</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570468129931</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,21 +141,22 @@
     <MESSAGE value="Коммит от 05.10.19&#10;Проведена работа над логикой, исправлен persistence" />
     <MESSAGE value="Коммит от 07.10.19" />
     <MESSAGE value="еще один Коммит от 07.10.19" />
-    <option name="LAST_COMMIT_MESSAGE" value="еще один Коммит от 07.10.19" />
+    <MESSAGE value="и еще один Коммит от 07.10.19" />
+    <option name="LAST_COMMIT_MESSAGE" value="и еще один Коммит от 07.10.19" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="item.getClass().getSuperclass().getSuperclass().getSuperclass().getName()" language="JAVA" />
+        <watch expression="object" language="JAVA" />
+        <watch expression="field.get(item)" language="JAVA" />
+        <watch expression="entry.getKey()" language="JAVA" />
+        <watch expression="minValue" language="JAVA" />
+        <watch expression="maxValue" language="JAVA" />
+        <watch expression="entry.getValue()" language="JAVA" />
+        <watch expression="workingclass.getDeclaredFields()" language="JAVA" />
+        <watch expression="((HashMap.Node) entry).key" language="JAVA" custom="java.util.Date,java.util.HashMap" />
+        <watch expression="field.get(item).equals(entry.getValue())" language="JAVA" />
+        <watch expression="object" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

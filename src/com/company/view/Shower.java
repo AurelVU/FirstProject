@@ -62,13 +62,13 @@ public class Shower {
 
         while (true)
         {
-            System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, 3 - работа с трудоустройствами, 4 - редактирование аккаунта");
+            System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, 3 - работа с трудоустройствами, 4 - редактирование аккаунта, 5 - выход");
             int key = in.nextInt();
-            if (key == 1)
+            if (key == 2)
             {
                 JobOfferPanel(id);
             }
-            if (key == 2)
+            if (key == 1)
             {
                 JobApplicationPanel(id);
             }
@@ -80,15 +80,17 @@ public class Shower {
             {
                 System.out.println("Введите новый пароль");
                 in.nextLine();
-                String password = in.nextLine();;
+                String password = in.nextLine();
                 System.out.println("Введите о компании");
-                in.nextLine();
-                String aboutCompany = in.nextLine();;
+                //in.nextLine();
+                String aboutCompany = in.nextLine();
                 System.out.println("Введите направление деятельности");
-                in.nextLine();
-                String lineActivity = in.nextLine();;
-                emoloyerServices.change(id, userlogin, password, 0, aboutCompany, lineActivity);
+                //in.nextLine();
+                String lineActivity = in.nextLine();
+                userServices.change(id, userlogin, password, 0, aboutCompany, lineActivity);
             }
+            if (key == 5)
+                return;
         }
     }
 
@@ -131,13 +133,13 @@ public class Shower {
 
         while (true)
         {
-            System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, 3 - работа с трудоустройствами, 4 - редактирование аккаунта");
+            System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, 3 - работа с трудоустройствами, 4 - редактирование аккаунта, 5 - выход");
             int key = in.nextInt();
-            if (key == 1)
+            if (key == 2)
             {
                 JobOfferPanel(id);
             }
-            if (key == 2)
+            if (key == 1)
             {
                 JobApplicationPanel(id);
             }
@@ -147,18 +149,17 @@ public class Shower {
             }
             if (key == 4)
             {
-
                 System.out.println("Введите новый пароль");
                 in.nextLine();
-                String password = in.nextLine();;
+                String password = in.nextLine();
                 System.out.println("Введите о компании");
-                in.nextLine();
-                String aboutCompany = in.nextLine();;
+                String aboutCompany = in.nextLine();
                 System.out.println("Введите направление деятельности");
-                in.nextLine();
-                String lineActivity = in.nextLine();;
+                String lineActivity = in.nextLine();
                 emoloyerServices.change(id, employerlogin, password, 0, aboutCompany, lineActivity);
             }
+            if (key == 5)
+                return;
         }
     }
 
@@ -174,56 +175,72 @@ public class Shower {
         if (key == 2)
         {
             System.out.println("Введите id пользователя");
+            in.nextLine();
             User user = userServices.getById(in.nextLong());
             System.out.println("Введите минимальную желаемую дату старта работы");
+            in.nextLine();
             Date desiredStartTimeMin = null;
             try {
                 desiredStartTimeMin = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            System.out.println("Введите максимальную желаемую дату старта работы");
             Date desiredStartTimeMax = null;
             try {
                 desiredStartTimeMax = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+
+            System.out.println("Введите минимальную желаемую дату окончания работы");
             Date desiredFinishTimeMin = null;
             try {
                 desiredFinishTimeMin = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            in.nextLine();
+            System.out.println("Введите максимальную желаемую дату окончания работы");
             Date desiredFinishTimeMax = null;
             try {
                 desiredFinishTimeMax = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            System.out.println("Введите минимальную оплату");
             BigDecimal desiredWageMin = null;
             desiredWageMin = in.nextBigDecimal();
+            System.out.println("Введите максимальную оплату");
             BigDecimal desiredWageMax = null;
             desiredWageMax = in.nextBigDecimal();
+            System.out.println("Введите минимальную желаемую дату размещения объявления");
+            in.nextLine();
             Date placementDateMin = null;
             try {
                 placementDateMin = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            System.out.println("Введите максимальную желаемую дату размещения объявления");
+
             Date placementDateMax = null;
             try {
-                placementDateMax = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+                String date = in.nextLine();
+                placementDateMax = new SimpleDateFormat("dd/MM/yyyy").parse(date);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
             List<JobApplication> jobApplications = jobApplicationServices.getByParams(user, desiredStartTimeMin, desiredStartTimeMax, desiredFinishTimeMin, desiredFinishTimeMax, desiredWageMin,
                     desiredWageMax, placementDateMin, placementDateMax);
+            jobApplications.forEach(System.out::println);
         }
         if (key == 3)
         {
             User user = userServices.getById(id);
 
-            System.out.println("Введите минимальную желаемую дату старта работы");
+            System.out.println("Введите желаемую дату старта работы");
+            in.nextLine();
             Date desiredStartTime = null;
             try {
                 desiredStartTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
@@ -231,6 +248,7 @@ public class Shower {
                 e.printStackTrace();
             }
 
+            System.out.println("Введите желаемую дату окончания работы");
             Date desiredFinishTime = null;
             try {
                 desiredFinishTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
@@ -238,13 +256,14 @@ public class Shower {
                 e.printStackTrace();
             }
 
+            System.out.println("Введите желаемую оплату");
             BigDecimal desiredWage = null;
             desiredWage = in.nextBigDecimal();
+
 
             Date placementDate = new Date();
 
             System.out.println("Введите направление деятельности");
-            in.nextLine();
             String typeServece = in.nextLine();
 
             jobApplicationServices.create(user, desiredStartTime, desiredFinishTime, desiredWage, placementDate, typeServece);
@@ -303,9 +322,8 @@ public class Shower {
             List<JobOffer> jobOffers = jobOfferServices.getAll();
             jobOffers.forEach(System.out::println);
         }
-        if (key == 3)
+        if (key == 2)
         {
-            System.out.println("Введите id пользователя");
             Employer employer = emoloyerServices.getById(in.nextLong());
             System.out.println("Введите минимальную желаемую дату старта работы");
             Date desiredStartTimeMin = null;
@@ -325,7 +343,8 @@ public class Shower {
             System.out.println("Введите минимальную желаемую дату завершения работы");
             Date desiredFinishTimeMin = null;
             try {
-                desiredFinishTimeMin = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+                String date = in.nextLine();
+                desiredFinishTimeMin = new SimpleDateFormat("dd/MM/yyyy").parse(date);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -358,12 +377,14 @@ public class Shower {
             }
             List<JobOffer> jobOffers = jobOfferServices.getByParams(employer, desiredStartTimeMin, desiredStartTimeMax, desiredFinishTimeMin, desiredFinishTimeMax, desiredWageMin,
                     desiredWageMax, placementDateMin, placementDateMax);
+            jobOffers.forEach(System.out::println);
         }
-        if (key == 2)
+        if (key == 3)
         {
             Employer employer = emoloyerServices.getById(id);
 
             System.out.println("Введите желаемую дату старта работы");
+            in.nextLine();
             Date desiredStartTime = null;
             try {
                 desiredStartTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
@@ -386,15 +407,16 @@ public class Shower {
             Date placementDate = new Date();
 
             System.out.println("Введите направление деятельности");
-            in.nextLine();
+
             String typeServece = in.nextLine();
 
             System.out.println("Введите прочее");
-            in.nextLine();
+
             String other = in.nextLine();
 
             jobOfferServices.create(employer, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
                     typeServece, other);
+
         }
         if (key == 4)
         {
@@ -453,15 +475,123 @@ public class Shower {
         System.out.println("1 - Показать все, 2 - Показать с учетом параметров, 3 - Создать новое, 4 - Изменить, 5 - Удалить, 6 - выйти");
         int key = in.nextInt();
         if (key == 1)
-        {}
+        {
+            employmentServices.getAll().forEach(System.out::println);
+        }
         if (key == 2)
-        {}
+        {
+            System.out.println("Введите id заявки на работу");
+            JobApplication jobApplication = jobApplicationServices.getById(in.nextLong());
+            System.out.println("Введите id предложения работы");
+            JobOffer jobOffer = jobOfferServices.getById(in.nextLong());
+            System.out.println("Введите id пользователя");
+            User user = userServices.getById(in.nextLong());
+            System.out.println("Введите id работодателя");
+            Employer employer = emoloyerServices.getById(in.nextLong());
+            System.out.println("Введите отзыв сотрудника");
+            String employeeReview = in.nextLine();
+            System.out.println("Введите отзыв компании");
+            String companyReview = in.nextLine();
+            System.out.println("Введите дату начала работы");
+            Date startDateMin = null;
+            try {
+                startDateMin = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Введите дату начала работы");
+            Date startDateMax = null;
+            try {
+                startDateMax = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Введите дату окончания работы");
+            Date finishDateMin = null;
+            try {
+                finishDateMin = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Введите дату окончания работы");
+            Date finishDateMax = null;
+            try {
+                finishDateMax = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            employmentServices.getByParams(jobApplication, jobOffer, user, employer, startDateMin, startDateMax,
+                    finishDateMin, finishDateMax).forEach(System.out::println);
+        }
         if (key == 3)
-        {}
+        {
+            System.out.println("Введите id заявки на работу");
+            JobApplication jobApplication = jobApplicationServices.getById(in.nextLong());
+            System.out.println("Введите id предложения работы");
+            JobOffer jobOffer = jobOfferServices.getById(in.nextLong());
+            System.out.println("Введите id пользователя");
+            User user = userServices.getById(in.nextLong());
+            System.out.println("Введите id работодателя");
+            Employer employer = emoloyerServices.getById(in.nextLong());
+            System.out.println("Введите отзыв сотрудника");
+            String employeeReview = in.nextLine();
+            System.out.println("Введите отзыв компании");
+            String companyReview = in.nextLine();
+            System.out.println("Введите дату начала работы");
+            Date startDate = null;
+            try {
+                startDate = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Введите дату окончания работы");
+            Date finishDate = null;
+            try {
+                finishDate = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            employmentServices.create(jobApplication, jobOffer, user, employer, employeeReview, companyReview,
+                    startDate, finishDate);
+        }
         if (key == 4)
-        {}
+        {
+            System.out.println("Введите id трудоустройства");
+            Long idtr = in.nextLong();
+            System.out.println("Введите id заявки на работу");
+            JobApplication jobApplication = jobApplicationServices.getById(in.nextLong());
+            System.out.println("Введите id предложения работы");
+            JobOffer jobOffer = jobOfferServices.getById(in.nextLong());
+            System.out.println("Введите id пользователя");
+            User user = userServices.getById(in.nextLong());
+            System.out.println("Введите id работодателя");
+            Employer employer = emoloyerServices.getById(in.nextLong());
+            System.out.println("Введите отзыв сотрудника");
+            String employeeReview = in.nextLine();
+            System.out.println("Введите отзыв компании");
+            String companyReview = in.nextLine();
+            System.out.println("Введите дату начала работы");
+            Date startDate = null;
+            try {
+                startDate = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Введите дату окончания работы");
+            Date finishDate = null;
+            try {
+                finishDate = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            employmentServices.change(idtr, jobApplication, jobOffer, user, employer, employeeReview, companyReview,
+                    startDate, finishDate);
+        }
         if (key == 5)
-        {}
+        {
+            System.out.println("Введите id");
+            employmentServices.delete(in.nextLong());
+        }
         if (key == 6)
             return;
     }
