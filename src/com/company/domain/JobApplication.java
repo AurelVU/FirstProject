@@ -1,11 +1,17 @@
 package com.company.domain;
 
+import com.company.domain.annotations.SQLinformationClass;
+import com.company.domain.annotations.SQLinformationVariable;
+
 import java.util.Date;
 import java.math.BigDecimal;
 
+@SQLinformationClass(name = "job_application")
 public class JobApplication extends Entity //Заявка на работу
 {
+    @SQLinformationVariable(name = "user_id", SQLtype = "INT")
     private User user;
+    @SQLinformationVariable(name = "desired_start_time", SQLtype = "DATE")
     private Date desiredStartTime;
 
     public JobApplication(User user, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate, String typeService) {
@@ -68,9 +74,13 @@ public class JobApplication extends Entity //Заявка на работу
         this.typeService = typeService;
     }
 
+    @SQLinformationVariable(name = "desired_finish_time", SQLtype = "DATE")
     private Date desiredFinishTime;
+    @SQLinformationVariable(name = "desired_wage", SQLtype = "INT(20)")
     private BigDecimal desiredWage;
+    @SQLinformationVariable(name = "placement_date", SQLtype = "DATE")
     private Date placementDate;
+    @SQLinformationVariable(name = "type_service", SQLtype = "VARCHAR(100)")
     private String typeService;
 
     @Override

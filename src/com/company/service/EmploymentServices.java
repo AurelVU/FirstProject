@@ -2,14 +2,14 @@ package com.company.service;
 
 import com.company.domain.*;
 import com.company.persistence.DAO;
-import com.company.persistence.SimpleWorker;
+import com.company.persistence.InMemDAO;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 public class EmploymentServices {
-    DAO<Employment> employmentDAO = new SimpleWorker<>();
+    DAO<Employment> employmentDAO = new InMemDAO<>();
     public void create(JobApplication jobApplication, JobOffer jobOffer, User user, Employer employer, String employeeReview,
                 String companyReview, Date startDate, Date finishDate)
     {

@@ -1,16 +1,25 @@
 package com.company.domain;
 
+import com.company.domain.annotations.SQLinformationClass;
+import com.company.domain.annotations.SQLinformationVariable;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+@SQLinformationClass(name = "job_offer")
 public class JobOffer extends Entity //Предложение работы
 {
-    private Long id;
+    @SQLinformationVariable(name = "employer", SQLtype = "INT")
     private Employer employer;
+    @SQLinformationVariable(name = "desired_start_time", SQLtype = "DATE")
     private Date desiredStartTime;
+    @SQLinformationVariable(name = "desired_finish_time", SQLtype = "DATE")
     private Date desiredFinishTime;
+    @SQLinformationVariable(name = "desired_wage", SQLtype = "INT(20)")
     private BigDecimal desiredWage;
+    @SQLinformationVariable(name = "placement_date", SQLtype = "DATE")
     private Date placementDate;
+    @SQLinformationVariable(name = "requirements", SQLtype = "VARCHAR(100)")
     private String requirements;
 
     public JobOffer(Employer employer, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate, String requirements, String other) {
@@ -82,6 +91,7 @@ public class JobOffer extends Entity //Предложение работы
         this.other = other;
     }
 
+    @SQLinformationVariable(name = "other", SQLtype = "VARCHAR(1000)")
     private String other;
 
     @Override

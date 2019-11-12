@@ -3,7 +3,7 @@ package com.company.service;
 import com.company.domain.JobApplication;
 import com.company.domain.User;
 import com.company.persistence.DAO;
-import com.company.persistence.SimpleWorker;
+import com.company.persistence.InMemDAO;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class JobApplicationServices {
-    DAO<JobApplication> jobApplicationDAO = new SimpleWorker<>();
+    DAO<JobApplication> jobApplicationDAO = new InMemDAO<>();
     public void create(User user, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate,
                 String typeService)
     {

@@ -1,9 +1,16 @@
 package com.company.domain;
 
+import com.company.domain.annotations.SQLinformationClass;
+import com.company.domain.annotations.SQLinformationVariable;
+
+@SQLinformationClass(name = "user")
 public class User extends AbstractUser //Пользователь
 {
+    @SQLinformationVariable(name = "rating", SQLtype = "INT")
     private int rating;
+    @SQLinformationVariable(name = "about_employee", SQLtype = "VARCHAR(100)")
     private String aboutEmployee;
+    @SQLinformationVariable(name = "line_activity", SQLtype = "VARCHAR(100)")
     private String lineActivity;
 
     public User(String login, String password, int rating, String aboutEmployee, String lineActivity) {

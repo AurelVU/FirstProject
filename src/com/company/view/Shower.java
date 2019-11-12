@@ -22,18 +22,15 @@ public class Shower {
 
     Scanner in = new Scanner(System.in);
 
-    public void UserPanel()
-    {
+    public void UserPanel() {
         String userlogin = "";
         Long id = null;
 
         boolean registration = false;
-        while (!registration)
-        {
+        while (!registration) {
             System.out.println("1 - регистрация, 2 - попытка входа");
             int key = in.nextInt();
-            if (key == 1)
-            {
+            if (key == 1) {
                 System.out.println("Введите логин, затем пароль");
                 in.nextLine();
                 String login = in.nextLine();
@@ -43,8 +40,7 @@ public class Shower {
                 else
                     System.out.println("Пользователь с данныи логином уже существует");
             }
-            if (key == 2)
-            {
+            if (key == 2) {
                 System.out.println("Введите логин, затем пароль");
                 in.nextLine();
                 String login = in.nextLine();
@@ -54,30 +50,24 @@ public class Shower {
                     System.out.println("Авторизация пройдена успешно");
                     userlogin = login;
                     id = userServices.getIdByLogin(login);
-                }
-                else
+                } else
                     System.out.println("Неверный логин или пароль");
             }
         }
 
-        while (true)
-        {
+        while (true) {
             System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, 3 - работа с трудоустройствами, 4 - редактирование аккаунта, 5 - выход");
             int key = in.nextInt();
-            if (key == 2)
-            {
-                JobOfferPanel(id);
+            if (key == 2) {
+                JobOfferPanel(id, true);
             }
-            if (key == 1)
-            {
-                JobApplicationPanel(id);
+            if (key == 1) {
+                JobApplicationPanel(id, true);
             }
-            if (key == 3)
-            {
+            if (key == 3) {
                 EmploymentPanel(id);
             }
-            if (key == 4)
-            {
+            if (key == 4) {
                 System.out.println("Введите новый пароль");
                 in.nextLine();
                 String password = in.nextLine();
@@ -94,17 +84,14 @@ public class Shower {
         }
     }
 
-    public void EmployerPanel()
-    {
+    public void EmployerPanel() {
         String employerlogin = "";
         Long id = null;
         boolean registration = false;
-        while (!registration)
-        {
+        while (!registration) {
             System.out.println("1 - регистрация, 2 - попытка входа");
             int key = in.nextInt();
-            if (key == 1)
-            {
+            if (key == 1) {
                 System.out.println("Введите логин, затем пароль");
                 in.nextLine();
                 String login = in.nextLine();
@@ -114,8 +101,7 @@ public class Shower {
                 else
                     System.out.println("Пользователь с данныи логином уже существует");
             }
-            if (key == 2)
-            {
+            if (key == 2) {
                 System.out.println("Введите логин, затем пароль");
                 in.nextLine();
                 String login = in.nextLine();
@@ -125,30 +111,24 @@ public class Shower {
                     System.out.println("Авторизация пройдена успешно");
                     employerlogin = login;
                     id = emoloyerServices.getIdByLogin(login);
-                }
-                else
+                } else
                     System.out.println("Неверный логин или пароль");
             }
         }
 
-        while (true)
-        {
+        while (true) {
             System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, 3 - работа с трудоустройствами, 4 - редактирование аккаунта, 5 - выход");
             int key = in.nextInt();
-            if (key == 2)
-            {
-                JobOfferPanel(id);
+            if (key == 2) {
+                JobOfferPanel(id, false);
             }
-            if (key == 1)
-            {
-                JobApplicationPanel(id);
+            if (key == 1) {
+                JobApplicationPanel(id, false);
             }
-            if (key == 3)
-            {
+            if (key == 3) {
                 EmploymentPanel(id);
             }
-            if (key == 4)
-            {
+            if (key == 4) {
                 System.out.println("Введите новый пароль");
                 in.nextLine();
                 String password = in.nextLine();
@@ -163,17 +143,14 @@ public class Shower {
         }
     }
 
-    public void JobApplicationPanel(Long id)
-    {
+    public void JobApplicationPanel(Long id, boolean isUser) {
         System.out.println("1 - Показать все, 2 - Показать с учетом параметров, 3 - Создать новое, 4 - Изменить, 5 - Удалить, 6 - выйти");
         int key = in.nextInt();
-        if (key == 1)
-        {
+        if (key == 1) {
             List<JobApplication> jobApplications = jobApplicationServices.getAll();
             jobApplications.forEach(System.out::println);
         }
-        if (key == 2)
-        {
+        if (key == 2) {
             System.out.println("Введите id пользователя");
             in.nextLine();
             User user = userServices.getById(in.nextLong());
@@ -235,41 +212,44 @@ public class Shower {
                     desiredWageMax, placementDateMin, placementDateMax);
             jobApplications.forEach(System.out::println);
         }
-        if (key == 3)
-        {
-            User user = userServices.getById(id);
+        if (key == 3) {
+            if (isUser) {
+                User user = userServices.getById(id);
 
-            System.out.println("Введите желаемую дату старта работы");
-            in.nextLine();
-            Date desiredStartTime = null;
-            try {
-                desiredStartTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
-            } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Введите желаемую дату старта работы");
+                in.nextLine();
+                Date desiredStartTime = null;
+                try {
+                    desiredStartTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println("Введите желаемую дату окончания работы");
+                Date desiredFinishTime = null;
+                try {
+                    desiredFinishTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println("Введите желаемую оплату");
+                BigDecimal desiredWage = null;
+                desiredWage = in.nextBigDecimal();
+
+
+                Date placementDate = new Date();
+
+                System.out.println("Введите направление деятельности");
+                in.nextLine();
+                String typeServece = in.nextLine();
+
+                jobApplicationServices.create(user, desiredStartTime, desiredFinishTime, desiredWage, placementDate, typeServece);
+            } else {
+                System.out.println("У вас недостаточно прав");
             }
-
-            System.out.println("Введите желаемую дату окончания работы");
-            Date desiredFinishTime = null;
-            try {
-                desiredFinishTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-            System.out.println("Введите желаемую оплату");
-            BigDecimal desiredWage = null;
-            desiredWage = in.nextBigDecimal();
-
-
-            Date placementDate = new Date();
-
-            System.out.println("Введите направление деятельности");
-            String typeServece = in.nextLine();
-
-            jobApplicationServices.create(user, desiredStartTime, desiredFinishTime, desiredWage, placementDate, typeServece);
         }
-        if (key == 4)
-        {
+        if (key == 4) {
             System.out.println("Введите id записи");
             Long idjob = in.nextLong();
 
@@ -302,8 +282,7 @@ public class Shower {
             jobApplicationServices.change(idjob, user, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
                     typeServece);
         }
-        if (key == 5)
-        {
+        if (key == 5) {
 
             System.out.println("Введите id записи");
             Long idjob = in.nextLong();
@@ -313,17 +292,14 @@ public class Shower {
             return;
     }
 
-    public void JobOfferPanel(Long id)
-    {
+    public void JobOfferPanel(Long id, boolean isUser) {
         System.out.println("1 - Показать все, 2 - Показать с учетом параметров,  3 - Создать новое, 4 - Изменить, 5 - Удалить, 6 - выйти");
         int key = in.nextInt();
-        if (key == 1)
-        {
+        if (key == 1) {
             List<JobOffer> jobOffers = jobOfferServices.getAll();
             jobOffers.forEach(System.out::println);
         }
-        if (key == 2)
-        {
+        if (key == 2) {
             Employer employer = emoloyerServices.getById(in.nextLong());
             System.out.println("Введите минимальную желаемую дату старта работы");
             Date desiredStartTimeMin = null;
@@ -379,47 +355,48 @@ public class Shower {
                     desiredWageMax, placementDateMin, placementDateMax);
             jobOffers.forEach(System.out::println);
         }
-        if (key == 3)
-        {
-            Employer employer = emoloyerServices.getById(id);
+        if (key == 3) {
+            if (!isUser) {
+                Employer employer = emoloyerServices.getById(id);
 
-            System.out.println("Введите желаемую дату старта работы");
-            in.nextLine();
-            Date desiredStartTime = null;
-            try {
-                desiredStartTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
-            } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Введите желаемую дату старта работы");
+                in.nextLine();
+                Date desiredStartTime = null;
+                try {
+                    desiredStartTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println("Введите желаемую дату окончания работы");
+                Date desiredFinishTime = null;
+                try {
+                    desiredFinishTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println("Введите желаемую оплату");
+                BigDecimal desiredWage = null;
+                desiredWage = in.nextBigDecimal();
+
+                Date placementDate = new Date();
+
+                System.out.println("Введите направление деятельности");
+
+                String typeServece = in.nextLine();
+
+                System.out.println("Введите прочее");
+
+                String other = in.nextLine();
+
+                jobOfferServices.create(employer, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
+                        typeServece, other);
+            } else {
+                System.out.println("У вас недостаточно прав");
             }
-
-            System.out.println("Введите желаемую дату окончания работы");
-            Date desiredFinishTime = null;
-            try {
-                desiredFinishTime = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-            System.out.println("Введите желаемую оплату");
-            BigDecimal desiredWage = null;
-            desiredWage = in.nextBigDecimal();
-
-            Date placementDate = new Date();
-
-            System.out.println("Введите направление деятельности");
-
-            String typeServece = in.nextLine();
-
-            System.out.println("Введите прочее");
-
-            String other = in.nextLine();
-
-            jobOfferServices.create(employer, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
-                    typeServece, other);
-
         }
-        if (key == 4)
-        {
+        if (key == 4) {
             System.out.println("Введите id записи");
             Long idjob = in.nextLong();
 
@@ -448,6 +425,7 @@ public class Shower {
             Date placementDate = new Date();
 
             System.out.println("Введите направление деятельности");
+            in.nextLine();
             in.nextLine();
             String typeServece = in.nextLine();
 
@@ -459,8 +437,7 @@ public class Shower {
             jobOfferServices.change(idjob, employer, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
                     typeServece, other);
         }
-        if (key == 5)
-        {
+        if (key == 5) {
 
             System.out.println("Введите id записи");
             Long idjob = in.nextLong();
@@ -470,16 +447,13 @@ public class Shower {
             return;
     }
 
-    public void EmploymentPanel(Long id)
-    {
+    public void EmploymentPanel(Long id) {
         System.out.println("1 - Показать все, 2 - Показать с учетом параметров, 3 - Создать новое, 4 - Изменить, 5 - Удалить, 6 - выйти");
         int key = in.nextInt();
-        if (key == 1)
-        {
+        if (key == 1) {
             employmentServices.getAll().forEach(System.out::println);
         }
-        if (key == 2)
-        {
+        if (key == 2) {
             System.out.println("Введите id заявки на работу");
             JobApplication jobApplication = jobApplicationServices.getById(in.nextLong());
             System.out.println("Введите id предложения работы");
@@ -523,8 +497,7 @@ public class Shower {
             employmentServices.getByParams(jobApplication, jobOffer, user, employer, startDateMin, startDateMax,
                     finishDateMin, finishDateMax).forEach(System.out::println);
         }
-        if (key == 3)
-        {
+        if (key == 3) {
             System.out.println("Введите id заявки на работу");
             JobApplication jobApplication = jobApplicationServices.getById(in.nextLong());
             System.out.println("Введите id предложения работы");
@@ -554,8 +527,7 @@ public class Shower {
             employmentServices.create(jobApplication, jobOffer, user, employer, employeeReview, companyReview,
                     startDate, finishDate);
         }
-        if (key == 4)
-        {
+        if (key == 4) {
             System.out.println("Введите id трудоустройства");
             Long idtr = in.nextLong();
             System.out.println("Введите id заявки на работу");
@@ -587,8 +559,7 @@ public class Shower {
             employmentServices.change(idtr, jobApplication, jobOffer, user, employer, employeeReview, companyReview,
                     startDate, finishDate);
         }
-        if (key == 5)
-        {
+        if (key == 5) {
             System.out.println("Введите id");
             employmentServices.delete(in.nextLong());
         }

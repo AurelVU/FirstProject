@@ -3,13 +3,13 @@ package com.company.service;
 
 import com.company.domain.User;
 import com.company.persistence.DAO;
-import com.company.persistence.SimpleWorker;
+import com.company.persistence.InMemDAO;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class UserServices {
-    protected DAO<User> userDAO = new SimpleWorker<>();
+    protected DAO<User> userDAO = new InMemDAO<>();
 
     public boolean registration(String login, String password)
     {

@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a51d75c-5446-4858-91ba-c501cbf09986" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/domain/annotations/SQLinformationClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/domain/annotations/SQLinformationVariable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/AbstractUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/AbstractUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/persistence/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/InMemDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/service/EmoloyerServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/EmoloyerServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/service/EmploymentServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/EmploymentServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/service/JobApplicationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/JobApplicationServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/service/JobOfferServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/JobOfferServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/service/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/UserServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/view/Shower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/view/Shower.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,6 +33,20 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -30,8 +61,14 @@
   </component>
   <component name="ProjectId" id="1RHtXEaNzFR6MWrVxgLLVLwETB5" />
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -68,6 +105,21 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f7ef83f3" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -95,7 +147,16 @@
       <workItem from="1570467103513" duration="2813000" />
       <workItem from="1570473538118" duration="5101000" />
       <workItem from="1570530386606" duration="11651000" />
-      <workItem from="1570550079075" duration="3091000" />
+      <workItem from="1570550079075" duration="4578000" />
+      <workItem from="1571141054070" duration="3385000" />
+      <workItem from="1571149780833" duration="920000" />
+      <workItem from="1571155058251" duration="796000" />
+      <workItem from="1572978477500" duration="600000" />
+      <workItem from="1573468378115" duration="1657000" />
+      <workItem from="1573471424933" duration="416000" />
+      <workItem from="1573474642266" duration="3861000" />
+      <workItem from="1573564867667" duration="13711000" />
+      <workItem from="1573587501266" duration="668000" />
     </task>
     <task id="LOCAL-00001" summary="Коммит от 05.10.19&#10;Проведена работа над логикой, исправлен persistence">
       <created>1570263199979</created>
@@ -118,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570468129931</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="и еще один Коммит от 07.10.19">
+      <created>1570553204847</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570553204847</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,13 +213,45 @@
     <option name="LAST_COMMIT_MESSAGE" value="и еще один Коммит от 07.10.19" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/view/Shower.java</url>
+          <line>453</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="object" language="JAVA" />
-        <watch expression="field.get(item)" language="JAVA" />
-        <watch expression="entry.getKey()" language="JAVA" />
-        <watch expression="minValue" language="JAVA" />
-        <watch expression="maxValue" language="JAVA" />
+        <watch expression="((SQLinformationVariable)f.getAnnotation(SQLinformationVariable.class)).name()" language="JAVA" />
+        <watch expression="f.getName()" language="JAVA" />
+        <watch expression="zap" language="JAVA" />
         <watch expression="entry.getValue()" language="JAVA" />
         <watch expression="workingclass.getDeclaredFields()" language="JAVA" />
         <watch expression="((HashMap.Node) entry).key" language="JAVA" custom="java.util.Date,java.util.HashMap" />
