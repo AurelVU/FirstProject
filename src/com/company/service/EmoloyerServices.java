@@ -3,13 +3,14 @@ package com.company.service;
 import com.company.domain.Employer;
 import com.company.persistence.DAO;
 import com.company.persistence.InMemDAO;
+import com.company.persistence.MySqlDAO;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class EmoloyerServices {
-    protected DAO<Employer> employerDAO = new InMemDAO<>();
+    protected DAO<Employer> employerDAO = new MySqlDAO<>(Employer.class);
 
     public boolean registration(String login, String password) {
         Employer employer = new Employer(login, password);

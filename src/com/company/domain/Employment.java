@@ -8,12 +8,12 @@ import java.util.Date;
 @SQLinformationClass(name = "employment")
 public class Employment extends Entity //Трудоустройство
 {
-    public Employment(JobApplication jobApplication, JobOffer jobOffer, User user, Employer employer,
+    public Employment(Long jobApplicationId, Long jobOfferId, Long userId, Long employerId,
                       String employeeReview, String companyReview, Date startDate, Date finishDate) {
-        this.jobApplication = jobApplication;
-        this.jobOffer = jobOffer;
-        this.user = user;
-        this.employer = employer;
+        this.jobApplicationId = jobApplicationId;
+        this.jobOfferId = jobOfferId;
+        this.userId = userId;
+        this.employerId = employerId;
         this.employeeReview = employeeReview;
         this.companyReview = companyReview;
         this.startDate = startDate;
@@ -23,36 +23,36 @@ public class Employment extends Entity //Трудоустройство
     public Employment() {
     }
 
-    public JobApplication getJobApplication() {
-        return jobApplication;
+    public Long getJobApplicationId() {
+        return jobApplicationId;
     }
 
-    public void setJobApplication(JobApplication jobApplication) {
-        this.jobApplication = jobApplication;
+    public void setJobApplication(Long jobApplicationId) {
+        this.jobApplicationId = jobApplicationId;
     }
 
-    public JobOffer getJobOffer() {
-        return jobOffer;
+    public Long getJobOfferId() {
+        return jobOfferId;
     }
 
-    public void setJobOffer(JobOffer jobOffer) {
-        this.jobOffer = jobOffer;
+    public void setJobOffer(Long jobOfferId) {
+        this.jobOfferId = jobOfferId;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Long userId) {
+        this.userId = userId;
     }
 
-    public Employer getEmployer() {
-        return employer;
+    public Long getEmployer() {
+        return employerId;
     }
 
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
+    public void setEmployer(Long employerId) {
+        this.employerId = employerId;
     }
 
     public String getEmployeeReview() {
@@ -88,13 +88,13 @@ public class Employment extends Entity //Трудоустройство
     }
 
     @SQLinformationVariable(name = "job_application_id", SQLtype = "INT")
-    private JobApplication jobApplication;
+    private Long jobApplicationId;
     @SQLinformationVariable(name = "job_offer_id", SQLtype = "INT")
-    private JobOffer jobOffer;
+    private Long jobOfferId;
     @SQLinformationVariable(name = "user_id", SQLtype = "INT")
-    private User user;
+    private Long userId;
     @SQLinformationVariable(name = "employer_id", SQLtype = "INT")
-    private Employer employer;
+    private Long employerId;
     @SQLinformationVariable(name = "employee_review", SQLtype = "VARCHAR(1000)")
     private String employeeReview;
     @SQLinformationVariable(name = "company_review", SQLtype = "VARCHAR(1000)")
@@ -106,8 +106,8 @@ public class Employment extends Entity //Трудоустройство
 
     @Override
     public String toString() {
-        return "id: " + id.toString() + ", логин работника: " + user.getLogin() + ", логин работодателя " + employer.getLogin() +
-                ", id предложения" + jobApplication.getId().toString() + ", id заявки " + jobOffer.getId() +
+        return "id: " + id.toString() + ", логин работника: " + userId.toString() + ", логин работодателя " + employerId.toString() +
+                ", id предложения" + jobApplicationId.toString() + ", id заявки " + jobOfferId.toString() +
                 ", отзыв о сотруднике: " + employeeReview + ", отзыв о работодателе: " + companyReview + ", дата начала работы" +
                 startDate.toString() + ", дата окончания работы " + finishDate.toString();
     }

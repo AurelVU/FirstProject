@@ -56,7 +56,8 @@ public class Shower {
         }
 
         while (true) {
-            System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, 3 - работа с трудоустройствами, 4 - редактирование аккаунта, 5 - выход");
+            System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, " +
+                    "3 - работа с трудоустройствами, 4 - редактирование аккаунта, 5 - выход");
             int key = in.nextInt();
             if (key == 2) {
                 JobOfferPanel(id, true);
@@ -117,7 +118,8 @@ public class Shower {
         }
 
         while (true) {
-            System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, 3 - работа с трудоустройствами, 4 - редактирование аккаунта, 5 - выход");
+            System.out.println("1 - работа с заявками на работу, 2 - работа с предложениями работы, " +
+                    "3 - работа с трудоустройствами, 4 - редактирование аккаунта, 5 - выход");
             int key = in.nextInt();
             if (key == 2) {
                 JobOfferPanel(id, false);
@@ -144,7 +146,8 @@ public class Shower {
     }
 
     public void JobApplicationPanel(Long id, boolean isUser) {
-        System.out.println("1 - Показать все, 2 - Показать с учетом параметров, 3 - Создать новое, 4 - Изменить, 5 - Удалить, 6 - выйти");
+        System.out.println("1 - Показать все, 2 - Показать с учетом параметров, 3 - Создать новое, 4 - Изменить, " +
+                "5 - Удалить, 6 - выйти");
         int key = in.nextInt();
         if (key == 1) {
             List<JobApplication> jobApplications = jobApplicationServices.getAll();
@@ -208,7 +211,8 @@ public class Shower {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            List<JobApplication> jobApplications = jobApplicationServices.getByParams(user, desiredStartTimeMin, desiredStartTimeMax, desiredFinishTimeMin, desiredFinishTimeMax, desiredWageMin,
+            List<JobApplication> jobApplications = jobApplicationServices.getByParams(user.getId(), desiredStartTimeMin,
+                    desiredStartTimeMax, desiredFinishTimeMin, desiredFinishTimeMax, desiredWageMin,
                     desiredWageMax, placementDateMin, placementDateMax);
             jobApplications.forEach(System.out::println);
         }
@@ -244,7 +248,8 @@ public class Shower {
                 in.nextLine();
                 String typeServece = in.nextLine();
 
-                jobApplicationServices.create(user, desiredStartTime, desiredFinishTime, desiredWage, placementDate, typeServece);
+                jobApplicationServices.create(user.getId(), desiredStartTime, desiredFinishTime, desiredWage,
+                        placementDate, typeServece);
             } else {
                 System.out.println("У вас недостаточно прав");
             }
@@ -279,7 +284,7 @@ public class Shower {
             in.nextLine();
             String typeServece = in.nextLine();
 
-            jobApplicationServices.change(idjob, user, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
+            jobApplicationServices.change(idjob, user.getId(), desiredStartTime, desiredFinishTime, desiredWage, placementDate,
                     typeServece);
         }
         if (key == 5) {
@@ -293,7 +298,8 @@ public class Shower {
     }
 
     public void JobOfferPanel(Long id, boolean isUser) {
-        System.out.println("1 - Показать все, 2 - Показать с учетом параметров,  3 - Создать новое, 4 - Изменить, 5 - Удалить, 6 - выйти");
+        System.out.println("1 - Показать все, 2 - Показать с учетом параметров,  3 - Создать новое, 4 - Изменить, " +
+                "5 - Удалить, 6 - выйти");
         int key = in.nextInt();
         if (key == 1) {
             List<JobOffer> jobOffers = jobOfferServices.getAll();
@@ -351,7 +357,8 @@ public class Shower {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            List<JobOffer> jobOffers = jobOfferServices.getByParams(employer, desiredStartTimeMin, desiredStartTimeMax, desiredFinishTimeMin, desiredFinishTimeMax, desiredWageMin,
+            List<JobOffer> jobOffers = jobOfferServices.getByParams(employer.getId(), desiredStartTimeMin,
+                    desiredStartTimeMax, desiredFinishTimeMin, desiredFinishTimeMax, desiredWageMin,
                     desiredWageMax, placementDateMin, placementDateMax);
             jobOffers.forEach(System.out::println);
         }
@@ -390,7 +397,7 @@ public class Shower {
 
                 String other = in.nextLine();
 
-                jobOfferServices.create(employer, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
+                jobOfferServices.create(employer.getId(), desiredStartTime, desiredFinishTime, desiredWage, placementDate,
                         typeServece, other);
             } else {
                 System.out.println("У вас недостаточно прав");
@@ -434,8 +441,8 @@ public class Shower {
             in.nextLine();
             String other = in.nextLine();
 
-            jobOfferServices.change(idjob, employer, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
-                    typeServece, other);
+            jobOfferServices.change(idjob, employer.getId(), desiredStartTime, desiredFinishTime, desiredWage,
+                    placementDate, typeServece, other);
         }
         if (key == 5) {
 
@@ -448,7 +455,8 @@ public class Shower {
     }
 
     public void EmploymentPanel(Long id) {
-        System.out.println("1 - Показать все, 2 - Показать с учетом параметров, 3 - Создать новое, 4 - Изменить, 5 - Удалить, 6 - выйти");
+        System.out.println("1 - Показать все, 2 - Показать с учетом параметров, 3 - Создать новое, 4 - Изменить, " +
+                "5 - Удалить, 6 - выйти");
         int key = in.nextInt();
         if (key == 1) {
             employmentServices.getAll().forEach(System.out::println);
@@ -494,8 +502,8 @@ public class Shower {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            employmentServices.getByParams(jobApplication, jobOffer, user, employer, startDateMin, startDateMax,
-                    finishDateMin, finishDateMax).forEach(System.out::println);
+            employmentServices.getByParams(jobApplication.getId(), jobOffer.getId(), user.getId(), employer.getId(),
+                    startDateMin, startDateMax, finishDateMin, finishDateMax).forEach(System.out::println);
         }
         if (key == 3) {
             System.out.println("Введите id заявки на работу");
@@ -524,8 +532,8 @@ public class Shower {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            employmentServices.create(jobApplication, jobOffer, user, employer, employeeReview, companyReview,
-                    startDate, finishDate);
+            employmentServices.create(jobApplication.getId(), jobOffer.getId(), user.getId(), employer.getId(),
+                    employeeReview, companyReview, startDate, finishDate);
         }
         if (key == 4) {
             System.out.println("Введите id трудоустройства");
@@ -556,8 +564,8 @@ public class Shower {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            employmentServices.change(idtr, jobApplication, jobOffer, user, employer, employeeReview, companyReview,
-                    startDate, finishDate);
+            employmentServices.change(idtr, jobApplication.getId(), jobOffer.getId(), user.getId(), employer.getId(),
+                    employeeReview, companyReview, startDate, finishDate);
         }
         if (key == 5) {
             System.out.println("Введите id");

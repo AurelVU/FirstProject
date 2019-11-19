@@ -28,6 +28,9 @@ public class Employer extends AbstractUser //Работодатель
         this.lineActivity = lineActivity;
     }
 
+    public  Employer()
+    {}
+
     public int getRating() {
         return rating;
     }

@@ -3,17 +3,19 @@ package com.company.service;
 import com.company.domain.*;
 import com.company.persistence.DAO;
 import com.company.persistence.InMemDAO;
+import com.company.persistence.MySqlDAO;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 public class EmploymentServices {
-    DAO<Employment> employmentDAO = new InMemDAO<>();
-    public void create(JobApplication jobApplication, JobOffer jobOffer, User user, Employer employer, String employeeReview,
+    DAO<Employment> employmentDAO = new MySqlDAO<>(Employment.class);
+
+    public void create(Long jobApplicationId, Long jobOfferId, Long userId, Long employerId, String employeeReview,
                 String companyReview, Date startDate, Date finishDate)
     {
-        Employment employment = new Employment(jobApplication, jobOffer, user, employer, employeeReview, companyReview,
+        Employment employment = new Employment(jobApplicationId, jobOfferId, userId, employerId, employeeReview, companyReview,
                 startDate, finishDate);
         employmentDAO.create(employment);
     }
@@ -23,10 +25,10 @@ public class EmploymentServices {
         employmentDAO.delete(id);
     }
 
-    public void change(Long id, JobApplication jobApplication, JobOffer jobOffer, User user, Employer employer, String employeeReview,
+    public void change(Long id, Long jobApplicationId, Long jobOfferId, Long userId, Long employerId, String employeeReview,
                 String companyReview, Date startDate, Date finishDate)
     {
-        Employment employment = new Employment(jobApplication, jobOffer, user, employer, employeeReview, companyReview,
+        Employment employment = new Employment(jobApplicationId, jobOfferId, userId, employerId, employeeReview, companyReview,
                 startDate, finishDate);
         employment.setId(id);
         try {
@@ -46,20 +48,20 @@ public class EmploymentServices {
         return employmentDAO.readById(id);
     }
 
-    public List<Employment> getByParams(JobApplication jobApplication, JobOffer jobOffer, User user, Employer employer,
+    public List<Employment> getByParams(Long jobApplicationId, Long jobOfferId, Long userId, Long employerId,
                                  Date startDateMin, Date startDateMax, Date finishDateMin, Date finishDateMax)
     {
         HashMap<String, Object> equilMap = new HashMap<>();
         HashMap<String, Object> minMap = new HashMap<>();
         HashMap<String, Object> maxMap = new HashMap<>();
-        if (jobApplication != null)
-            equilMap.put("jobApplication", jobApplication);
+        if (jobApplicationId != null)
+            equilMap.put("jobApplicationId", jobApplicationId);
 
-        if (jobOffer != null)
-            equilMap.put("jobOffer", jobOffer);
+        if (jobOfferId != null)
+            equilMap.put("jobOfferId", jobOfferId);
 
-        if (user != null)
-            equilMap.put("user", user);
+        if (userId != null)
+            equilMap.put("userId", userId);
 
         if (startDateMax != null)
             maxMap.put("startDate", startDateMax);

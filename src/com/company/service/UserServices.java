@@ -4,12 +4,13 @@ package com.company.service;
 import com.company.domain.User;
 import com.company.persistence.DAO;
 import com.company.persistence.InMemDAO;
+import com.company.persistence.MySqlDAO;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class UserServices {
-    protected DAO<User> userDAO = new InMemDAO<>();
+    protected DAO<User> userDAO = new MySqlDAO<>(User.class);
 
     public boolean registration(String login, String password)
     {

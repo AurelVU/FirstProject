@@ -4,6 +4,7 @@ import com.company.domain.Employer;
 import com.company.domain.JobOffer;
 import com.company.persistence.DAO;
 import com.company.persistence.InMemDAO;
+import com.company.persistence.MySqlDAO;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -11,10 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 
 public class JobOfferServices {
-    DAO<JobOffer> jobOfferDAO = new InMemDAO<>();
+    DAO<JobOffer> jobOfferDAO = new MySqlDAO<>(JobOffer.class);
 
-    public void create(Employer employer, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate, String requirements, String other) {
-        JobOffer jobOffer = new JobOffer(employer, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
+    public void create(Long employerId, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate, String requirements, String other) {
+        JobOffer jobOffer = new JobOffer(employerId, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
                 requirements, other);
         jobOfferDAO.create(jobOffer);
     }
@@ -23,9 +24,9 @@ public class JobOfferServices {
         jobOfferDAO.delete(id);
     }
 
-    public void change(Long id, Employer employer, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage,
+    public void change(Long id, Long employerId, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage,
                        Date placementDate, String requirements, String other) {
-        JobOffer jobOffer = new JobOffer(employer, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
+        JobOffer jobOffer = new JobOffer(employerId, desiredStartTime, desiredFinishTime, desiredWage, placementDate,
                 requirements, other);
         jobOffer.setId(id);
         try {
@@ -43,15 +44,15 @@ public class JobOfferServices {
         return jobOfferDAO.readById(id);
     }
 
-    public List<JobOffer> getByParams(Employer employer, Date desiredStartTimeMax, Date desiredStartTimeMin,
+    public List<JobOffer> getByParams(Long employerId, Date desiredStartTimeMax, Date desiredStartTimeMin,
                                       Date desiredFinishTimeMax, Date desiredFinishTimeMin, BigDecimal desiredWageMax,
                                       BigDecimal desiredWageMin, Date placementDateMax, Date placementDateMin) {
         HashMap<String, Object> equilMap = new HashMap<>();
         HashMap<String, Object> minMap = new HashMap<>();
         HashMap<String, Object> maxMap = new HashMap<>();
 
-        if (employer != null) {
-            equilMap.put("employer", employer);
+        if (employerId != null) {
+            equilMap.put("employerId", employerId);
         }
 
         if (desiredStartTimeMin != null) {

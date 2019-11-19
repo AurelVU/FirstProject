@@ -10,7 +10,7 @@ import java.util.Date;
 public class JobOffer extends Entity //Предложение работы
 {
     @SQLinformationVariable(name = "employer", SQLtype = "INT")
-    private Employer employer;
+    private Long employerId;
     @SQLinformationVariable(name = "desired_start_time", SQLtype = "DATE")
     private Date desiredStartTime;
     @SQLinformationVariable(name = "desired_finish_time", SQLtype = "DATE")
@@ -22,8 +22,8 @@ public class JobOffer extends Entity //Предложение работы
     @SQLinformationVariable(name = "requirements", SQLtype = "VARCHAR(100)")
     private String requirements;
 
-    public JobOffer(Employer employer, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate, String requirements, String other) {
-        this.employer = employer;
+    public JobOffer(Long employerId, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate, String requirements, String other) {
+        this.employerId = employerId;
         this.desiredStartTime = desiredStartTime;
         this.desiredFinishTime = desiredFinishTime;
         this.desiredWage = desiredWage;
@@ -35,12 +35,12 @@ public class JobOffer extends Entity //Предложение работы
     public JobOffer() {
     }
 
-    public Employer getEmployer() {
-        return employer;
+    public Long getEmployerId() {
+        return employerId;
     }
 
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
+    public void setEmployer(Long employerId) {
+        this.employerId = employerId;
     }
 
     public Date getDesiredStartTime() {
@@ -96,7 +96,7 @@ public class JobOffer extends Entity //Предложение работы
 
     @Override
     public String toString() {
-        return "id " + id.toString() + ", Создатель " + employer.getLogin() + ", начало работы " + desiredStartTime + ", дата завершения работы " +
+        return "id " + id.toString() + ", Создатель " + employerId.toString() + ", начало работы " + desiredStartTime + ", дата завершения работы " +
                 desiredFinishTime + ", оплата " + desiredWage.toString() + ", дата размещения " + placementDate.toString()
                 + ", требования " + requirements + ", прочее " + other;
     }

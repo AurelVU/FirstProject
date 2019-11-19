@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a51d75c-5446-4858-91ba-c501cbf09986" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_18.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/domain/annotations/SQLinformationClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/domain/annotations/SQLinformationVariable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/domain/AbstractUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/AbstractUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employer.java" afterDir="false" />
@@ -19,8 +11,7 @@
       <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/persistence/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/persistence/SimpleWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/InMemDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/service/EmoloyerServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/EmoloyerServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/service/EmploymentServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/EmploymentServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/service/JobApplicationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/JobApplicationServices.java" afterDir="false" />
@@ -156,7 +147,10 @@
       <workItem from="1573471424933" duration="416000" />
       <workItem from="1573474642266" duration="3861000" />
       <workItem from="1573564867667" duration="13711000" />
-      <workItem from="1573587501266" duration="668000" />
+      <workItem from="1573587501266" duration="913000" />
+      <workItem from="1574013328529" duration="4633000" />
+      <workItem from="1574073004371" duration="11649000" />
+      <workItem from="1574166756898" duration="1017000" />
     </task>
     <task id="LOCAL-00001" summary="Коммит от 05.10.19&#10;Проведена работа над логикой, исправлен persistence">
       <created>1570263199979</created>
@@ -186,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570553204847</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="и еще один Коммит от 07.10.19">
+      <created>1573590219992</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573590219992</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,50 +214,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="и еще один Коммит от 07.10.19" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/view/Shower.java</url>
-          <line>453</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="((SQLinformationVariable)f.getAnnotation(SQLinformationVariable.class)).name()" language="JAVA" />
-        <watch expression="f.getName()" language="JAVA" />
+        <watch expression="this" language="JAVA" />
+        <watch expression="field.getName().getClass().getName()" language="JAVA" />
+        <watch expression="field.getName().indexOf(&quot;String&quot;)" language="JAVA" />
+        <watch expression="field.getName()" language="JAVA" />
         <watch expression="zap" language="JAVA" />
         <watch expression="entry.getValue()" language="JAVA" />
         <watch expression="workingclass.getDeclaredFields()" language="JAVA" />
         <watch expression="((HashMap.Node) entry).key" language="JAVA" custom="java.util.Date,java.util.HashMap" />
         <watch expression="field.get(item).equals(entry.getValue())" language="JAVA" />
         <watch expression="object" language="JAVA" />
+        <watch expression="zap.length()" language="JAVA" />
+        <watch expression="zap.lastIndexOf(&quot;AND&quot;)" language="JAVA" />
+        <watch expression="field.getName().getClass().getName().indexOf(&quot;String&quot;)" language="JAVA" />
+        <watch expression="res" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

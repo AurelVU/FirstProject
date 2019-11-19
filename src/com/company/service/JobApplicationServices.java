@@ -4,6 +4,7 @@ import com.company.domain.JobApplication;
 import com.company.domain.User;
 import com.company.persistence.DAO;
 import com.company.persistence.InMemDAO;
+import com.company.persistence.MySqlDAO;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -11,11 +12,13 @@ import java.util.HashMap;
 import java.util.List;
 
 public class JobApplicationServices {
-    DAO<JobApplication> jobApplicationDAO = new InMemDAO<>();
-    public void create(User user, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate,
+    DAO<JobApplication> jobApplicationDAO = new MySqlDAO<>(JobApplication.class);
+
+
+    public void create(Long userId, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate,
                 String typeService)
     {
-        JobApplication jobApplication = new JobApplication(user, desiredStartTime, desiredFinishTime, desiredWage,
+        JobApplication jobApplication = new JobApplication(userId, desiredStartTime, desiredFinishTime, desiredWage,
                 placementDate, typeService);
         jobApplicationDAO.create(jobApplication);
     }
@@ -25,10 +28,10 @@ public class JobApplicationServices {
         jobApplicationDAO.delete(id);
     }
 
-    public void change(Long id, User user, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage,
+    public void change(Long id, Long userId, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage,
                 Date placementDate, String typeService)
     {
-        JobApplication jobApplication = new JobApplication(user, desiredStartTime, desiredFinishTime, desiredWage,
+        JobApplication jobApplication = new JobApplication(userId, desiredStartTime, desiredFinishTime, desiredWage,
                 placementDate, typeService);
         jobApplication.setId(id);
         try {
@@ -48,7 +51,7 @@ public class JobApplicationServices {
         return jobApplicationDAO.readById(id);
     }
 
-    public List<JobApplication> getByParams(User user, Date desiredStartTimeMin, Date desiredStartTimeMax,
+    public List<JobApplication> getByParams(Long userId, Date desiredStartTimeMin, Date desiredStartTimeMax,
                                      Date desiredFinishTimeMin,  Date desiredFinishTimeMax,
                                      BigDecimal desiredWageMin, BigDecimal desiredWageMax, Date placementDateMin,
                                      Date placementDateMax)
@@ -60,9 +63,9 @@ public class JobApplicationServices {
 
 
 
-        if (user != null)
+        if (userId != null)
         {
-            equilMap.put("user", user);
+            equilMap.put("userId", userId);
         }
 
         if (desiredStartTimeMin != null)

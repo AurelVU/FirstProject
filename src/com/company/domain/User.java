@@ -27,6 +27,8 @@ public class User extends AbstractUser //Пользователь
         this.lineActivity = "";
     }
 
+    public User() {
+    }
 
     public int getRating() {
         return rating;

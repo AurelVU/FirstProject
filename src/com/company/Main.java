@@ -12,7 +12,7 @@ public class Main {
     static Scanner in = new Scanner(System.in);
     static Shower shower = new Shower();
     public static void main(String[] args) {
-        /*while(true)
+        while(true)
         {
             System.out.println("1 - пользователь, 2 - предпринематель");
             int key = in.nextInt();
@@ -20,7 +20,7 @@ public class Main {
                 shower.UserPanel();
             if (key == 2)
                 shower.EmployerPanel();
-        }*/
-        DAO<JobOffer> test = new MySqlDAO<>(JobOffer.class);
+        }
+        //DAO<JobOffer> test = new MySqlDAO<>(JobOffer.class);
     }
 }

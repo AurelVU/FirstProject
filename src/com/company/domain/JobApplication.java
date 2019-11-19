@@ -10,12 +10,12 @@ import java.math.BigDecimal;
 public class JobApplication extends Entity //Заявка на работу
 {
     @SQLinformationVariable(name = "user_id", SQLtype = "INT")
-    private User user;
+    private Long userId;
     @SQLinformationVariable(name = "desired_start_time", SQLtype = "DATE")
     private Date desiredStartTime;
 
-    public JobApplication(User user, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate, String typeService) {
-        this.user = user;
+    public JobApplication(Long userId, Date desiredStartTime, Date desiredFinishTime, BigDecimal desiredWage, Date placementDate, String typeService) {
+        this.userId = userId;
         this.desiredStartTime = desiredStartTime;
         this.desiredFinishTime = desiredFinishTime;
         this.desiredWage = desiredWage;
@@ -26,12 +26,12 @@ public class JobApplication extends Entity //Заявка на работу
     public JobApplication() {
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Long userId) {
+        this.userId = userId;
     }
 
     public Date getDesiredStartTime() {
@@ -85,8 +85,8 @@ public class JobApplication extends Entity //Заявка на работу
 
     @Override
     public String toString() {
-        return "id " + id.toString() + ", Создатель " + user.getLogin() + ", начало работы " + desiredStartTime + ", дата завершения работы " +
+        return "id " + id.toString() + ", Создатель " + userId.toString() + ", начало работы " + desiredStartTime + ", дата завершения работы " +
                 desiredFinishTime + ", оплата " + desiredWage.toString() + ", дата размещения " + placementDate.toString()
-                + ", тип услуги" + typeService;
+                + ", тип услуги " + typeService;
     }
 }
