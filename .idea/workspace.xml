@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a51d75c-5446-4858-91ba-c501cbf09986" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/AbstractUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/AbstractUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Employment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Employment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/JobOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/persistence/MySqlDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/EmoloyerServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/EmoloyerServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/EmploymentServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/EmploymentServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/JobApplicationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/JobApplicationServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/JobOfferServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/JobOfferServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/service/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/service/UserServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/view/Shower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/view/Shower.java" afterDir="false" />
-    </list>
+    <list default="true" id="7a51d75c-5446-4858-91ba-c501cbf09986" name="Default Changelist" comment="и еще один Коммит от 07.10.19" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
